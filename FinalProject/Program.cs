@@ -61,8 +61,16 @@ namespace FinalProject
                         break;
                     case 2:
                         Console.WriteLine("----Satiwlar uzerinde emeliyyat apara bilersiz ");
-
-                        break;
+                        Console.WriteLine("1.Yeni satiw elave etmek");
+                        Console.WriteLine("2. Satisdaki hansisa mehsulun geri qaytarilmasi(satisdan cixarilmasi) ");
+                        Console.WriteLine("3. Satisin silinmesi - satisin nomresine esasen silinmesi");
+                        Console.WriteLine("4. Butun satislarin ekrana cixarilmasi(nomresi, meblegi, mehsul sayi, tarixi)");
+                        Console.WriteLine("5. Verilen tarix araligina gore satislarin gosterilmesi");
+                        Console.WriteLine("6. Verilen mebleg araligina gore satislarin gosterilmesi");
+                        Console.WriteLine("7. Verilmis bir tarixde olan satislarin gosterilmesi ");
+                        Console.WriteLine("8. Verilmis nomreye esasen hemin nomreli satisin melumatlarinin gosterilmesi\n");
+                        SalesOperations();
+                         break;
                     default:
                         Console.WriteLine("-------------------------------");
                         Console.WriteLine("Yalniw secim daxil etdiniz.0-2 araliginda secim ede bilersiz");
@@ -112,7 +120,8 @@ namespace FinalProject
                             break;
 
                     }
-                static  void ShowProductAdd()           //product added  
+                    #region product methods
+                    static void ShowProductAdd()           //product added  
                     {
                         Console.WriteLine("------yeni Product elave et-----\n");
                         Products products = new Products();               
@@ -218,7 +227,41 @@ namespace FinalProject
                     }      //7
                 
                 }
+                #endregion
+
                 while (SelectInt != 0);
+            }
+
+
+               static void SalesOperations()
+            {
+                int SelectInt;
+                do
+                {
+                    Console.WriteLine("seciminizi daxil edin:");
+                    string select = Console.ReadLine();
+                    while (!int.TryParse(select, out SelectInt))
+                    {
+                        Console.WriteLine("yalniz reqem daxil ede bilersiz:");
+                        select = Console.ReadLine();
+                    }
+                    switch (SelectInt)
+                    {
+                        case 1:
+                            Console.WriteLine();
+                            break;
+                        default:
+                            break;
+                    }
+
+
+
+                }
+                while (SelectInt != 0);
+
+    
+
+                
             }
         }
     }

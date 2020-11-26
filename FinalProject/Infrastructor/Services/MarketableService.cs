@@ -10,7 +10,7 @@ using FinalProject.Infrastructor.Enums;
 
 namespace FinalProject.Infrastructor.Services
 {
-    public class MarketableService : IProducts
+    public class MarketableService : IProducts,ISales
     {
         private readonly List<Sales> _sales;
         public List<Sales> Sale => _sales;
@@ -120,14 +120,57 @@ namespace FinalProject.Infrastructor.Services
         public void ProductSearching(string text) //7
         {
             List<Products> pro = new List<Products>();
-         pro=   Product.FindAll(s => s.Name.Contains(text)).ToList();
+         pro= Product.FindAll(s => s.Name.Contains(text)).ToList();
             foreach (var item in pro)
             {
                 Console.WriteLine(item.Name);
             }
         }
-      
-    } 
+
+        #region _Sale Methods
+
+        public void AddSale(Sales sales)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteProductByItemId(int id, string product, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteSaleById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Sales> GetAllSales()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Sales> GetSalesByDateRange(DateTime startDate, DateTime endDate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Sales> GetSalesByAmountRange(int minAmount, int maxAmount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Sales> GetSalesByDate(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Sales> GetSaleById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+    }
 }
     
      

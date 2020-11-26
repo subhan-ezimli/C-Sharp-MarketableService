@@ -8,3 +8,13 @@ C:\Users\Subhan\Desktop\FinalProject\FinalProject\obj\Debug\FinalProject.pdb
 C:\Users\Subhan\Desktop\FinalProject\FinalProject\bin\Debug\ConsoleTables.dll
 C:\Users\Subhan\Desktop\FinalProject\FinalProject\bin\Debug\ConsoleTables.pdb
 C:\Users\Subhan\Desktop\FinalProject\FinalProject\obj\Debug\FinalProject.csproj.CopyComplete
+C:\Users\subhanav\Desktop\C-Sharp-Final-proje\FinalProject\bin\Debug\FinalProject.exe.config
+C:\Users\subhanav\Desktop\C-Sharp-Final-proje\FinalProject\bin\Debug\FinalProject.exe
+C:\Users\subhanav\Desktop\C-Sharp-Final-proje\FinalProject\bin\Debug\FinalProject.pdb
+C:\Users\subhanav\Desktop\C-Sharp-Final-proje\FinalProject\bin\Debug\ConsoleTables.dll
+C:\Users\subhanav\Desktop\C-Sharp-Final-proje\FinalProject\bin\Debug\ConsoleTables.pdb
+C:\Users\subhanav\Desktop\C-Sharp-Final-proje\FinalProject\obj\Debug\FinalProject.csprojAssemblyReference.cache
+C:\Users\subhanav\Desktop\C-Sharp-Final-proje\FinalProject\obj\Debug\FinalProject.csproj.CoreCompileInputs.cache
+C:\Users\subhanav\Desktop\C-Sharp-Final-proje\FinalProject\obj\Debug\FinalProject.csproj.CopyComplete
+C:\Users\subhanav\Desktop\C-Sharp-Final-proje\FinalProject\obj\Debug\FinalProject.exe
+C:\Users\subhanav\Desktop\C-Sharp-Final-proje\FinalProject\obj\Debug\FinalProject.pdb
