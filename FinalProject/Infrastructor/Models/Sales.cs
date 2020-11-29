@@ -10,7 +10,7 @@ namespace FinalProject.Infrastructor.Models
     {      
         public int Id { get; set; }
         public double Amount { get; set; }
-        public SaleItems saleItems { get; set; }
+        public List<SaleItems> saleItems { get; set; }
         public DateTime Date { get; set; }
 
     }

@@ -18,8 +18,8 @@ namespace FinalProject.Infrastructor.Interfaces
    // + 7 Mehsullar arasinda ada gore axtaris et - userden text daxil etmesi istenilir ve adinda hemin text olan butun mehsullar gosterilir(kodu, adi, categoriyasi, sayi, qiymeti)
     
         void AddProduct(Products products); //1
-        void UpdateProductByCode(int code);  //2
-        void RenameProductByCode(int code); //3
+        void UpdateProductByCode(string code);  //2
+        void RemoveProductByCode(string code); //3
         void GetAllProducts();  //4
         void GetProductsByCategory(Category category); //5
         void GetProductsByAmountRange(double minAmount, double maxAmount);     //6
