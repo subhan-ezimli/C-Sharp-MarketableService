@@ -7,7 +7,7 @@ using FinalProject.Infrastructor.Interfaces;
 using FinalProject.Infrastructor.Models;
 using ConsoleTables;
 using FinalProject.Infrastructor.Enums;
-   
+
 namespace FinalProject.Infrastructor.Services
 {
     public class MarketableService : IProducts, ISales
@@ -75,7 +75,7 @@ namespace FinalProject.Infrastructor.Services
         {
             Products pro = new Products();
             pro = Product.Find(p => p.Code == code);
-            
+
             if (pro != null)
             {
                 Console.Write("Mehsulun adi:  ");
@@ -112,8 +112,8 @@ namespace FinalProject.Infrastructor.Services
                 {
                     Console.WriteLine("reqem daxil edin:");
                     categoryNumber = Console.ReadLine();
-              
-                } 
+
+                }
 
                 switch (categoryNumberInt)
                 {
@@ -157,9 +157,9 @@ namespace FinalProject.Infrastructor.Services
                 }
                 pro.Quantity = countInt;
 
-                
 
-                 
+
+
 
 
             }
@@ -167,7 +167,7 @@ namespace FinalProject.Infrastructor.Services
         public void RemoveProductByCode(string code) //3
         {
             Products pro = Product.Find(p => p.Code == code);
-            if (pro!=null)
+            if (pro != null)
             {
                 Product.Remove(pro);
                 Console.WriteLine("verdiyiniz koda uygun mehsul silindi");
@@ -197,7 +197,7 @@ namespace FinalProject.Infrastructor.Services
         {
             List<Products> pro = Product.FindAll(p => p.category == category).ToList();
             ConsoleTable table = new ConsoleTable("adi", "nomresi", "Categoriyasi", "sayi", "qiymeti");
-           
+
             foreach (var item in pro)
             {
                 table.AddRow(item.Name, item.Code, item.category, item.Quantity, item.price);
@@ -221,20 +221,16 @@ namespace FinalProject.Infrastructor.Services
             table.Write();
         }
         public void ProductSearching(string Text) //7
-        {      
+        {
             Products pro = Product.Find(p => p.Name.Contains(Text));
 
-            if (pro !=null)
+            if (pro != null)
             {
-                Console.WriteLine(pro.Name+""+pro.price+""+pro.Code);  //nese problem oldu burda.iwlemedi
+                Console.WriteLine(pro.Name + "" + pro.price + "" + pro.Code);  //nese problem oldu burda.iwlemedi
             }
- 
+
         }
-
-
         #region _Sale Methods
-
-
 
         public void AddSale(string productCode, int productCount)
         {
@@ -242,26 +238,46 @@ namespace FinalProject.Infrastructor.Services
             var saleitem = new SaleItems();
             Sales sales = new Sales();
             var sale = sales;
+            Products product = Product.Find(p => p.Code == productCode);
+            if (product != null)
+            {   
+                product = Product.Find(p => p.Quantity >= productCount);
+                if (product != null)
+                {
+                    saleitem.Products = product;
+                    saleitem.Number = items.Count + 1;
+                    items.Add(saleitem);
+                    sale.Id = _sales.Count + 1;
+                    sale.Amount += productCount * product.price;
+                    sale.Date = DateTime.Now;
+                    sale.saleItems = items;
+                    _sales.Add(sale);
 
-            var product = _product.Where(p => p.Code == productCode).FirstOrDefault();
+                    Sales satiw = new Sales();
+                    SaleItems item = new SaleItems();
+                }
+                else
+                {
 
-            saleitem.Products = product;
-            saleitem.Number = items.Count + 1;
-            items.Add(saleitem);
-            sale.Id = _sales.Count + 1; ;
-            sale.Amount += productCount * product.price;
-            sale.Date = DateTime.Now;
-            sale.saleItems = items;
-            _sales.Add(sale);
+                    Console.WriteLine("daxil etdiyiniz say qeder mehsul yoxdur.");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("daxil etdiyiniz  codda mehsul yoxdur.yeniden ceh etmeye caliwin");
+                
+            }          
         }
 
       public    void DeleteProductByItemId(int id, string product, int count)
-        { 
-
+        {
+            
         }
         public void DeleteSaleById(int id)
         {
-            throw new NotImplementedException();
+            Sales sale = Sale.Find(s => s.Id == id);
+            Sale.Remove(sale);
         }      
          public void GetAllSales()
         {
@@ -317,16 +333,15 @@ namespace FinalProject.Infrastructor.Services
 
         public void GetSaleById(int id)
         {
-           
-            foreach (var item in _sales)
+            Sales sale = Sale.Find(s => s.Id == id);
+            if (sale!=null)
             {
-                if (item.Id==id)
-                {
-                    
-                }
+                Console.WriteLine(sale.Id+" "+sale.Amount+" "+sale.saleItems.Count+" "+sale.Date);
             }
             
+            
         }
+      
     }
 
     #endregion

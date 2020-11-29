@@ -238,6 +238,7 @@ namespace FinalProject
 
                 static  void RemoveProduct()
                     {
+                        Console.WriteLine("silinmeli olan mehsulun kodunu daxil edin:");
                         string code = Console.ReadLine();
                         marketableService.RemoveProductByCode(code);
 
@@ -348,7 +349,7 @@ namespace FinalProject
                             getAllSales();
                             break;
                         case 3:
-                            getAllSales();
+                            DeleteSaleById();
                             break;
                         case 4:
                             getAllSales();
@@ -373,7 +374,7 @@ namespace FinalProject
                     static void addSale()
                     {
                         Console.WriteLine("Mehsulun kodunu daxil edin");
-                        string productCode = Console.ReadLine();
+                        string productCode = Console.ReadLine(); 
                         Console.WriteLine("Mehsulun sayini daxil edin:");
                         int productCount = Convert.ToInt32(Console.ReadLine());
                         marketableService.AddSale(productCode, productCount);
@@ -414,11 +415,24 @@ namespace FinalProject
                         int number = Convert.ToInt32(Console.ReadLine());
                         marketableService.GetSaleById(number);
                     }
-
-                }
+                    
+                    static void DeleteSaleById()
+                    {
+                        Console.WriteLine("satiw nomresini daxil edin :");
+                        int numberInt;
+                        string number = Console.ReadLine();
+                        while (!int.TryParse(number,out numberInt))
+                        {
+                            Console.WriteLine("yalniz reqem daxil ede bilersiz");
+                            number = Console.ReadLine();
+                        }
+                        marketableService.DeleteSaleById(numberInt);
+                        
+                      }
+                  }
                 while (SelectInt != 0);
 
-    
+         
 
                 
             }
